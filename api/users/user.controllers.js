@@ -18,10 +18,8 @@ exports.signup = async (req, res, next) => {
     return next(error);
   }
 };
-//"username":"Meshari_1",
+//"username""Meshari_1"
 //"password":"123456"
-//token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDlhZGZkYzVjODk1YmQ3NDJiYWVjMmEiLCJ1c2VybmFtZSI6Ik1lc2hhcmlfMSIsImlhdCI6MTY4Nzg3MTQ1MiwiZXhwIjoxNjg3ODc1MDUyfQ.CujYhRTD-tGPifgNT5HlwZX-KCU3ZBh5Sg0lLUKLXWY
-
 //login
 exports.signin = async (req, res, next) => {
   try {

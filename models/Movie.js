@@ -8,10 +8,6 @@ const MovieSchema = new Schema({
   releasDate: { type: Date, default: 0 },
 
   // create relations in here and in the other model
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
   actors: [
     {
       type: Schema.Types.ObjectId,
