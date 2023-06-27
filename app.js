@@ -11,10 +11,12 @@ const actorRoutes = require("./api/actors/actore.routes");
 const config = require("./config/keys");
 const passport = require("passport");
 const { localStrategy, jwtStrategy } = require("./middlewares/passport");
+const path = require("path");
 
-app.use(cors());
 connectDb();
 app.use(express.json());
+app.use("/media", express.static(path.join(__dirname, "media")));
+app.use(cors());
 app.use(morgan("dev"));
 
 app.use(passport.initialize());
