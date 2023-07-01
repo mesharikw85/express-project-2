@@ -6,6 +6,12 @@ const GenerSchema = new Schema({
   movie: { type: String, required: true },
 
   // create relations in here and in the other model
+  movies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Movie",
+    },
+  ],
 });
 
 module.exports = model("Gener", GenerSchema);

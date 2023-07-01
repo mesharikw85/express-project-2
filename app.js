@@ -7,7 +7,8 @@ const notFound = require("./middlewares/notFoundHandler");
 const errorHandler = require("./middlewares/errorHandler");
 const userRoutes = require("./api/users/user.routes");
 const movieRoutes = require("./api/movies/movie.routes");
-const actorRoutes = require("./api/actors/actore.routes");
+const reveiw = require("./api/review/review.routes");
+
 const config = require("./config/keys");
 const passport = require("passport");
 const { localStrategy, jwtStrategy } = require("./middlewares/passport");
@@ -20,13 +21,13 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use(passport.initialize());
-passport.use("local", localStrategy);
+passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 // Everything with the word temp is a placeholder that you'll change in accordance with your project
-app.use("/user", userRoutes);
+app.use("/User", userRoutes);
 app.use("/movie", movieRoutes);
-app.use("/actor", actorRoutes);
+app.use("/review", reveiw);
 app.use(notFound);
 app.use(errorHandler);
 

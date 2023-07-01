@@ -1,15 +1,11 @@
 const express = require("express");
-const router = express.Router();
 const {
-  getAllMovie,
-  actorGet,
-  createActore,
-  actorAdd,
+  createReview,
+  getReview,
+  reviewAdd,
   fetchMovie,
-  createGener,
-  generAdd,
-  generGet,
-} = require("./movie.controller");
+} = require("./reviwe.controllers");
+const router = express.Router();
 const passport = require("passport");
 
 router.param("movieId", async (req, res, next, movieId) => {
@@ -25,16 +21,16 @@ router.param("movieId", async (req, res, next, movieId) => {
   }
 });
 
-router.get("/", getAllMovie);
-router.get("/actor", actorGet);
-router.post("/add-actor", createActore);
 router.post(
-  "/actor/:movieId/:actorId",
+  "/:userId",
   passport.authenticate("jwt", { session: false }),
-  actorAdd
+  createReview
 );
-router.post("/add-gener", createGener);
-router.post("/gener/:movieId/:generId", generAdd);
-router.get("/gener", generGet);
+router.get("/", getReview);
+router.post(
+  "/:movieId/:reviewId",
+  passport.authenticate("jwt", { session: false }),
+  reviewAdd
+);
 
 module.exports = router;
